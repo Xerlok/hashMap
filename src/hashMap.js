@@ -33,6 +33,22 @@ export default class HashMap {
 
   get(key) {
     const index = this.hash(key);
-    return this.buckets[index].head.data; //returns only data in a first node for now
+    if (!this.buckets[index]) { return null; }
+    return this.buckets[index].head.data; // returns only data in a first node for now
   }
+
+  has(key) {
+    const index = this.hash(key);
+    if (!this.buckets[index]) { return false; }
+    return true;
+  }
+
+  remove(key) {
+    const index = this.hash(key);
+    if (!this.buckets[index]) { return false; }
+    this.buckets[index] = [];
+    return true;
+  }
+
+  
 }
