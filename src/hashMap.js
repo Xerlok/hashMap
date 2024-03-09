@@ -1,7 +1,8 @@
-/*eslint-disable*/
+/* eslint-disable no-continue */
 
-// It creates LinkedLists and Nodes but for now functions work as if there is only 1 node in each bucket
-import LinkedList from "./LinkedList";
+// It creates LinkedLists and Nodes but for now functions work as if
+// there is only 1 node in each bucket
+import LinkedList from './LinkedList';
 
 export default class HashMap {
   constructor(capacity = 16) {
@@ -19,7 +20,7 @@ export default class HashMap {
         hash = PrimeNumber * hash + key.charCodeAt(i);
       }
     } else {
-      throw new Error("Only strings are supported!")
+      throw new Error('Only strings are supported!');
     }
     return hash % this.capacity;
   }
@@ -68,8 +69,8 @@ export default class HashMap {
 
   //  returns an array containing all the keys inside the hash map.
   keys() {
-    let keys = [];
-    for (let i = 0; i < this.buckets.length; i++) {
+    const keys = [];
+    for (let i = 0; i < this.buckets.length; i += 1) {
       if (this.buckets[i] === null) {
         keys.push('_empty_');
         continue;
@@ -81,8 +82,8 @@ export default class HashMap {
 
   //  returns an array containing all the values.
   values() {
-    let values = [];
-    for (let i = 0; i < this.buckets.length; i++) {
+    const values = [];
+    for (let i = 0; i < this.buckets.length; i += 1) {
       if (this.buckets[i] === null) {
         values.push('_empty_');
         continue;
@@ -92,15 +93,15 @@ export default class HashMap {
     return values;
   }
 
-  // returns an array that contains each key, value pair. 
+  // returns an array that contains each key, value pair.
   entries() {
-    let entries = [];
-    for (let i = 0; i < this.buckets.length; i++) {
+    const entries = [];
+    for (let i = 0; i < this.buckets.length; i += 1) {
       if (this.buckets[i] === null) {
         entries.push('_empty_');
-        continue
+        continue;
       }
-      let pair = [];
+      const pair = [];
       pair.push(this.buckets[i].head.key, this.buckets[i].head.value);
       entries.push(pair);
     }

@@ -13,9 +13,11 @@ myHashMap.set('table', 'A table is an item of furniture with a raised flat top a
 
 console.log(myHashMap.get('bird'));
 console.log(myHashMap.get('table'));
-console.log(myHashMap.get('kek'));
+console.log(myHashMap.get('kek')); // returns null
+
 console.log(myHashMap.has('bird'));
-console.log(myHashMap.has('kek'));
+console.log(myHashMap.has('kek')); // returns false
+
 console.log(myHashMap.keys());
 console.log(myHashMap.values());
 console.log(myHashMap.entries());
