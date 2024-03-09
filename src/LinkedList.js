@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import Node from './Node';
 
 export default class LinkedList {
@@ -6,7 +8,7 @@ export default class LinkedList {
     this.size = 0;
   }
 
-  // adds a new node containing value to the end of the list
+  // adds a new node containing key-value to the end of the list
   append(key, value) {
     const newNode = new Node(key, value);
     if (this.head === null) { this.head = newNode; } else {
@@ -17,7 +19,7 @@ export default class LinkedList {
     this.size += 1;
   }
 
-  // adds a new node containing value to the start of the list
+  // adds a new node containing a key-value to the start of the list
   prepend(key, value) {
     const newNode = new Node(key, value);
     newNode.nextNode = this.head;

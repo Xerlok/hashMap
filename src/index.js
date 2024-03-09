@@ -17,3 +17,6 @@ console.log(myHashMap.get('kek'));
 console.log(myHashMap.has('bird'));
 console.log(myHashMap.has('kek'));
 console.log(myHashMap.keys());
+console.log(myHashMap.values());
+console.log(myHashMap.entries());
+console.log(myHashMap.showBuckets());
