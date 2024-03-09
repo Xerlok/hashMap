@@ -7,8 +7,8 @@ export default class LinkedList {
   }
 
   // adds a new node containing value to the end of the list
-  append(data) {
-    const newNode = new Node(data);
+  append(key, value) {
+    const newNode = new Node(key, value);
     if (this.head === null) { this.head = newNode; } else {
       let currentNode = this.head;
       while (currentNode.nextNode != null) { currentNode = currentNode.nextNode; }
@@ -18,8 +18,8 @@ export default class LinkedList {
   }
 
   // adds a new node containing value to the start of the list
-  prepend(data) {
-    const newNode = new Node(data);
+  prepend(key, value) {
+    const newNode = new Node(key, value);
     newNode.nextNode = this.head;
     this.head = newNode;
     this.size += 1;
@@ -74,26 +74,26 @@ export default class LinkedList {
     }
   }
 
-  // returns true or false if node contains data
-  contains(data) {
+  // returns true or false if node contains value
+  contains(value) {
     let currentNode = this.head;
     while (currentNode.nextNode != null) {
-      if (currentNode.data === data) {
+      if (currentNode.value === value) {
         return true;
       }
       currentNode = currentNode.nextNode;
     }
-    if (currentNode.data === data) {
+    if (currentNode.value === value) {
       return true;
     }
     return false;
   }
 
-  find(data) {
+  find(value) {
     let index = 0;
     let currentNode = this.head;
     while (currentNode.nextNode != null) {
-      if (currentNode.data === data) {
+      if (currentNode.value === value) {
         return index;
       }
       currentNode = currentNode.nextNode;
@@ -104,19 +104,19 @@ export default class LinkedList {
 
   // should make a string out of the List but makes an array for now
   toString() {
-    const nodesData = [];
+    const nodesValues = [];
     let currentNode = this.head;
     while (currentNode.nextNode != null) {
-      nodesData.push(currentNode.data);
+      nodesValues.push(currentNode.value);
       currentNode = currentNode.nextNode;
     }
-    nodesData.push(currentNode.data);
-    return nodesData;
+    nodesValues.push(currentNode.value);
+    return nodesValues;
   }
 
-  // inserts a new node with the provided value at the given index
-  insertAt(data, index) {
-    const newNode = new Node(data);
+  // inserts a new node with the provided key-value at the given index
+  insertAt(key, value, index) {
+    const newNode = new Node(key, value);
     if (this.head === null && index === 0) {
       this.head = newNode;
       this.size += 1;
